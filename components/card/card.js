@@ -6,8 +6,8 @@ export function createCharacterCard(
   occurrences
 ) {
   const card = document.createElement("li");
-  card.classList.add("card-container");
-  document.getElementsByClassName("card-container").append(card);
+  card.classList.add("card");
+  document.querySelector('[data-js="card-container"]').append(card);
 
   const cardImageContainer = document.createElement("div");
   cardImageContainer.classList.add("card__image-container");
