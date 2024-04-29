@@ -23,7 +23,7 @@ async function fetchCharacters() {
       const data = await response.json();
       const characters = data.results;
       console.log(characters);
-      for (let character of characters) {
+      characters.map((character) => {
         createCharacterCard(
           character.image,
           character.name,
@@ -31,7 +31,7 @@ async function fetchCharacters() {
           character.type,
           character.episode.length
         );
-      }
+      });
     }
   } catch (error) {
     console.error(error);
