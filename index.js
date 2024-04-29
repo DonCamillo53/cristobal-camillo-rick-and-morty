@@ -15,9 +15,21 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-let image = "https://rickandmortyapi.com/api/character/avatar/1.jpeg";
-let characterName = "Peter";
-let status = "Alive";
-let type = "Human";
-let occurrences = "51";
-createCharacterCard(image, characterName, status, type, occurrences);
+
+async function fetchCharacters() {
+  const response = await fetch("https://rickandmortyapi.com/api/character");
+  console.log(response);
+  if (response.ok) {
+    const data = await response.json();
+    const characters = data.results;
+    for (let character of characters) {
+      createCharacterCard(
+        character.name,
+        character.type,
+        character.status,
+        character.episode.length
+      );
+    }
+  }
+}
+console.log(fetchCharacters());
