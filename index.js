@@ -15,21 +15,26 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
-
 async function fetchCharacters() {
-  const response = await fetch("https://rickandmortyapi.com/api/character");
-  console.log(response);
-  if (response.ok) {
-    const data = await response.json();
-    const characters = data.results;
-    for (let character of characters) {
-      createCharacterCard(
-        character.name,
-        character.type,
-        character.status,
-        character.episode.length
-      );
+  try {
+    const response = await fetch("https://rickandmortyapi.com/api/character");
+    console.log(response);
+    if (response.ok) {
+      const data = await response.json();
+      const characters = data.results;
+      console.log(characters);
+      for (let character of characters) {
+        createCharacterCard(
+          character.image,
+          character.name,
+          character.status,
+          character.type,
+          character.episode.length
+        );
+      }
     }
+  } catch (error) {
+    console.error(error);
   }
 }
-console.log(fetchCharacters());
+fetchCharacters();
