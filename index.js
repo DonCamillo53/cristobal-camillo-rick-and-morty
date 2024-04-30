@@ -1,9 +1,15 @@
 import { createCharacterCard } from "./components/card/card.js";
+import { createNavButton } from "./components/nav-button/nav-button.js";
 // import { searchFunction } from "./components/search-bar/search-bar.js";
 // import {
 //   navPagination,
 //   prevPagination,
 // } from "./components/nav-pagination/nav-pagination.js";
+
+// createNavButton("prev");
+// createNavButton("next");
+
+createNavButton();
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -57,17 +63,6 @@ async function fetchCharacters(page, name) {
 }
 fetchCharacters(page, searchQuery);
 
-nextButton.addEventListener("click", () => {
-  if (page < maxPage) {
-    page += 1;
-    fetchCharacters(page, searchQuery);
-    pagination.textContent = `${page} / ${maxPage}`;
-  }
-  // else {
-  //   nextButton.disabled = true;
-  // }
-});
-
 prevButton.addEventListener("click", () => {
   if (page > 1) {
     page -= 1;
@@ -76,5 +71,16 @@ prevButton.addEventListener("click", () => {
   }
   // else {
   //   prevButton.disabled = true;
+  // }
+});
+
+nextButton.addEventListener("click", () => {
+  if (page < maxPage) {
+    page += 1;
+    fetchCharacters(page, searchQuery);
+    pagination.textContent = `${page} / ${maxPage}`;
+  }
+  // else {
+  //   nextButton.disabled = true;
   // }
 });
