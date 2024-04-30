@@ -17,6 +17,7 @@ const maxPage = 1;
 const page = 1;
 const searchQuery = "";
 
+
 //------------------This is a placeholder for fetched Data------------------------------//
 let fetchedData = [
   {
@@ -402,3 +403,23 @@ searchBar.addEventListener("submit", (e) => {
 
   searchBarInput.value = "";
 });
+
+
+async function fetchCharacters() {
+  const response = await fetch("https://rickandmortyapi.com/api/character");
+  console.log(response);
+  if (response.ok) {
+    const data = await response.json();
+    const characters = data.results;
+    for (let character of characters) {
+      createCharacterCard(
+        character.name,
+        character.type,
+        character.status,
+        character.episode.length
+      );
+    }
+  }
+}
+console.log(fetchCharacters());
+
