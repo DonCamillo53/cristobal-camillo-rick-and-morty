@@ -1,5 +1,9 @@
 import { createCharacterCard } from "./components/card/card.js";
 import { searchFunction } from "./components/search-bar/search-bar.js";
+// import {
+//   navPagination,
+//   prevPagination,
+// } from "./components/nav-pagination/nav-pagination.js";
 
 const cardContainer = document.querySelector('[data-js="card-container"]');
 const searchBarContainer = document.querySelector(
@@ -13,11 +17,9 @@ const nextButton = document.querySelector('[data-js="button-next"]');
 const pagination = document.querySelector('[data-js="pagination"]');
 
 // States
-const maxPage = 1;
-const page = 1;
+const maxPage = 42;
+let page = 1;
 const searchQuery = "";
-
-
 
 //------------------This is a placeholder for fetched Data------------------------------//
 let fetchedData = [
@@ -405,16 +407,38 @@ searchBar.addEventListener("submit", (e) => {
   searchBarInput.value = "";
 });
 
+// async function fetchCharacters() {
+//   try {
+//     const response = await fetch("https://rickandmortyapi.com/api/character");
+//     console.log(response);
+//     if (response.ok) {
+//       const data = await response.json();
+//       const characters = data.results;
+//       console.log(characters);
+//       characters.map((character) => {
+//         createCharacterCard(
+//           character.image,
+//           character.name,
+//           character.status,
+//           character.type,
+//           character.episode.length
+//         );
+//       });
+//     }
+//   } catch (error) {
+//     console.error(error);
+//   }
+// }
 
-
-async function fetchCharacters() {
+async function fetchCharacters(page, name) {
   try {
-    const response = await fetch("https://rickandmortyapi.com/api/character");
-    console.log(response);
+    cardContainer.innerHTML = "";
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`
+    );
     if (response.ok) {
       const data = await response.json();
       const characters = data.results;
-      console.log(characters);
       characters.map((character) => {
         createCharacterCard(
           character.image,
@@ -429,5 +453,26 @@ async function fetchCharacters() {
     console.error(error);
   }
 }
+fetchCharacters(page, searchQuery);
 
-fetchCharacters();
+nextButton.addEventListener("click", () => {
+  if (page < maxPage) {
+    page += 1;
+    fetchCharacters(page, searchQuery);
+    pagination.textContent = `${page} / ${maxPage}`;
+  }
+  // else {
+  //   nextButton.disabled = true;
+  // }
+});
+
+prevButton.addEventListener("click", () => {
+  if (page > 1) {
+    page -= 1;
+    fetchCharacters(page, searchQuery);
+    pagination.textContent = `${page} / ${maxPage}`;
+  }
+  // else {
+  //   prevButton.disabled = true;
+  // }
+});
