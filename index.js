@@ -407,29 +407,6 @@ searchBar.addEventListener("submit", (e) => {
   searchBarInput.value = "";
 });
 
-// async function fetchCharacters() {
-//   try {
-//     const response = await fetch("https://rickandmortyapi.com/api/character");
-//     console.log(response);
-//     if (response.ok) {
-//       const data = await response.json();
-//       const characters = data.results;
-//       console.log(characters);
-//       characters.map((character) => {
-//         createCharacterCard(
-//           character.image,
-//           character.name,
-//           character.status,
-//           character.type,
-//           character.episode.length
-//         );
-//       });
-//     }
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
 async function fetchCharacters(page, name) {
   try {
     cardContainer.innerHTML = "";
