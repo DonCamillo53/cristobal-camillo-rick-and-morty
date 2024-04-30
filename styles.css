@@ -12,21 +12,31 @@
 :root {
   --color-primary: rgb(51, 51, 51);
   --color-secondary: #f6f6f6;
+  --color-tertiary: #e89ac7;
   --font-family: system-ui;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-tertiary);
   font-family: var(--font-family);
   color: var(--color-primary);
-  padding: 20px;
 }
 
 main {
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
   gap: 10px;
 }
 
 .title {
   padding: 10px 0;
+}
+
+.header-Logo {
+  align-self: center;
+  width: 30rem;
+  padding: 5rem;
 }

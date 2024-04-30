@@ -74,3 +74,7 @@ nextButton.addEventListener("click", () => {
   //   nextButton.disabled = true;
   // }
 });
+
+document
+  .querySelector(".header-Logo")
+  .addEventListener("click", () => location.reload());

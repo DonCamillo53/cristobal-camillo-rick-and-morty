@@ -5,3 +5,12 @@
 .button:hover {
   background-color: var(--color-secondary);
 }
+
+.navigation {
+  width: 100%;
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.navigation button {
+}
