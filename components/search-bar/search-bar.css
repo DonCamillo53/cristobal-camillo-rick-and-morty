@@ -29,14 +29,14 @@
   font-size: 30px;;
   color: white;
   border-bottom: solid 2px;
-  font-family: "kidsFont";
+  font-family: "kidsFont", system-ui;
   text-transform: uppercase;
 }
 ::placeholder{
   font-size: 30px;;
   color: white;
   text-transform: uppercase;
-  font-family: "kidsFont";
+  font-family: "kidsFont", system-ui;
 }
 
 .search-bar__button {
