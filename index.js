@@ -22,7 +22,7 @@ searchBar.addEventListener("submit", (e) => {
   e.preventDefault();
   cardContainer.innerHTML = "";
   searchQuery = searchBarInput.value;
-  fetchCharacters(page, searchQuery);
+  fetchCharacters((page = 1), searchQuery);
   searchBarInput.value = "";
 });
 
