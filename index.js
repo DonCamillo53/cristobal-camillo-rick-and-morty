@@ -59,6 +59,7 @@ async function fetchCharacters(page, name) {
       const errorMessage = document.createElement("h1");
       errorMessage.textContent = `Morty, what the fuck is a ${searchQuery}?!`;
       errorContainer.append(errorMessage);
+      pagination.textContent = "0 / 0";
     }
   } catch (error) {
     console.error(error);
