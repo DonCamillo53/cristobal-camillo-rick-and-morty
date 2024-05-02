@@ -1,7 +1,35 @@
 .button {
+  padding: 15px 50px;
   border: none;
+  font-family: "kidsFont";
+  text-transform: uppercase;
+  font-size: 2rem;
+  border-radius: 10px;
+  color: var(--color-tertiary);
+  font-weight: bold;
 }
 
 .button:hover {
   background-color: var(--color-secondary);
+}
+
+.navigation {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.navigation__container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 8rem 0;
+  gap: 3rem;
+}
+
+.navigation__pagination {
+  font-family: "kidsFont";
+  font-size: 2rem;
+  color: white;
 }

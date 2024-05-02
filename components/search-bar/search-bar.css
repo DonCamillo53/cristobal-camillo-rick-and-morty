@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'kidsFont';
+  src: url('/components/type/LittleKidsHandwriting-Regular.otf') format('opentype');
+}
+
+
 .search-bar-container {
-  width: 300px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 3rem;
 }
 
 .search-bar {
@@ -7,24 +16,43 @@
   background-color: var(--color-secondary);
   display: grid;
   grid-template-columns: 1fr 24px;
+  background-color: var(--color-tertiary);
 }
 
 .search-bar__input {
+  width: 16rem;
+  height: 4rem;
   background-color: transparent;
   border: none;
   color: var(--color-primary);
+  background-color: var(--color-tertiary);
+  font-size: 30px;;
+  color: white;
+  border-bottom: solid 2px;
+  font-family: "kidsFont";
+  text-transform: uppercase;
+}
+::placeholder{
+  font-size: 30px;;
+  color: white;
+  text-transform: uppercase;
+  font-family: "kidsFont";
 }
 
 .search-bar__button {
   border: none;
   background-color: transparent;
+  background-color: var(--color-tertiary);
 }
 
 .search-bar__input:focus {
   outline: none;
+  background-color: var(--color-tertiary);
 }
 
 .search-bar__icon {
   width: 20px;
   /* filter: invert(); */
+  background-color: var(--color-tertiary);
 }
+.

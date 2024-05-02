@@ -1,6 +1,10 @@
 const navigation = document.querySelector('[data-js="navigation"]');
 
 export function createNavButton() {
+  const createNavContainer = document.createElement("div");
+  createNavContainer.classList.add("navigation__container");
+  navigation.append(createNavContainer);
+
   const createPrevButton = document.createElement("button");
   createPrevButton.classList.add("button", "button--prev");
   createPrevButton.setAttribute("data-js", "button-prev");
@@ -15,5 +19,10 @@ export function createNavButton() {
   createNextButton.classList.add("button", `button--next`);
   createNextButton.setAttribute("data-js", `button-next`);
   createNextButton.textContent = "Next";
-  navigation.append(createPrevButton, createPaginationSpan, createNextButton);
+
+  createNavContainer.append(
+    createPrevButton,
+    createPaginationSpan,
+    createNextButton
+  );
 }

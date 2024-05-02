@@ -1,4 +1,5 @@
 export function createCharacterCard(
+  idNumber,
   image,
   characterName,
   status,
@@ -8,6 +9,11 @@ export function createCharacterCard(
   const card = document.createElement("li");
   card.classList.add("card");
   document.querySelector('[data-js="card-container"]').append(card);
+
+  const cardID = document.createElement("h3");
+  cardID.classList.add("card__ID");
+  card.append(cardID);
+  cardID.textContent = "#" + idNumber;
 
   const cardImageContainer = document.createElement("div");
   cardImageContainer.classList.add("card__image-container");

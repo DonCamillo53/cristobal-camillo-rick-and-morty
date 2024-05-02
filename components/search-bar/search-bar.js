@@ -21,7 +21,7 @@ export function createSearchBar() {
 
   const createSearchButtonImage = document.createElement("img");
   createSearchButtonImage.classList.add("search-bar__icon");
-  createSearchButtonImage.setAttribute("src", "assets/magnifying-glass.png");
+  createSearchButtonImage.setAttribute("src", "./assets/images.png");
 
   createSearchButton.append(createSearchButtonImage);
   createSearchForm.append(createInputSearch, createSearchButton);

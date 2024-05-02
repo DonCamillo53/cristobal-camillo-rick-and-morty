@@ -36,9 +36,11 @@ async function fetchCharacters(page, name) {
       const data = await response.json();
       maxPage = data.info.pages;
       const characters = data.results;
+
       pagination.textContent = `${page} / ${maxPage}`;
       characters.map((character) => {
         createCharacterCard(
+          character.id,
           character.image,
           character.name,
           character.status,
@@ -74,3 +76,7 @@ nextButton.addEventListener("click", () => {
   //   nextButton.disabled = true;
   // }
 });
+
+document
+  .querySelector(".header-Logo")
+  .addEventListener("click", () => location.reload());
