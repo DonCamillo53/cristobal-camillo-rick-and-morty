@@ -36,7 +36,6 @@ async function fetchCharacters(page, name) {
       const data = await response.json();
       maxPage = data.info.pages;
       const characters = data.results;
-
       pagination.textContent = `${page} / ${maxPage}`;
       characters.map((character) => {
         createCharacterCard(
@@ -48,6 +47,18 @@ async function fetchCharacters(page, name) {
           character.episode.length
         );
       });
+    } else {
+      const errorContainer = document.createElement("div");
+      errorContainer.classList.add("error-container");
+      cardContainer.append(errorContainer);
+
+      const errorImage = document.createElement("img");
+      errorImage.setAttribute("src", "./assets/error-image.png");
+      errorContainer.append(errorImage);
+
+      const errorMessage = document.createElement("h1");
+      errorMessage.textContent = `Morty, what the fuck is a ${searchQuery}?!`;
+      errorContainer.append(errorMessage);
     }
   } catch (error) {
     console.error(error);

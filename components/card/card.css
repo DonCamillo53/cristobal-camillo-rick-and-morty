@@ -88,3 +88,19 @@ dd {
 li {
   list-style: none;
 }
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-container img {
+  width: 40%;
+}
+
+.error-container h1 {
+  font-family: "kidsFont";
+  text-transform: uppercase;
+  color: white;
+}
